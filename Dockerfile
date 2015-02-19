@@ -3,7 +3,7 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
 ## SOLR INSTALLATION
-ENV SOLR_VERSION 4.10.2
+ENV SOLR_VERSION 4.10.3
 ENV SOLR solr-$SOLR_VERSION
 ADD http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$SOLR_VERSION/$SOLR.tgz /tmp/$SOLR.tgz
 RUN mkdir -p /opt
