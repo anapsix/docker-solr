@@ -2,7 +2,7 @@ docker-solr
 ===================
 
 Minimal Docker image for SOLR with Java8 over Ubuntu 14.04  
-includes JDBC for PostgreSQL (9.3-1102.jdbc41) and MySQL (5.0.8)
+includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
 
 via WebUpd8 repo, inspired by @akisei and @makuk66
 
@@ -10,7 +10,7 @@ docker-solr
 ===================
 
 Minimal Docker image for SOLR with Java8 over Ubuntu 14.04  
-includes JDBC for PostgreSQL (9.3-1102.jdbc41) and MySQL (5.0.8)
+includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
 
 via WebUpd8 repo, inspired by @akisei and @makuk66
 
@@ -30,7 +30,7 @@ Here is how I start the container, while mounting Solr Core settings inside the 
     CONTAINER_PATH="/opt/solr"
 
     COLLECTIONS=$(find ${APP_DIR} -maxdepth 1 -mindepth 1 -type d -not -name .git -printf "%f\n")
-    VOLUMES=$(for col in ${COLLECTIONS[*]}; do echo -en "-v ${APP_DIR}/${col}:${CONTAINER_PATH}/example/solr/${col} "; done)
+    VOLUMES=$(for col in ${COLLECTIONS[*]}; do echo -en "-v ${APP_DIR}/${col}:${CONTAINER_PATH}/server/solr/${col} "; done)
 
     start_container() {
       APP_CID=$(docker run \
