@@ -18,7 +18,7 @@ RUN ln -sf /opt/$SOLR /opt/solr
 ADD http://jdbc.postgresql.org/download/postgresql-9.3-1102.jdbc41.jar /opt/solr/dist/postgresql-9.3-1102.jdbc41.jar
 # MySQL
 ADD http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.8.tar.gz /tmp/mysql-connector-java-5.0.8.tar.gz
-RUN tar -x -f /tmp/mysql-connector-java-5.0.8.tar.gz --wildcards --no-anchored mysql-connector-java-5.0.8-bin.jar --to-stdout > mysql-connector-java-5.0.8-bin.jar
+RUN tar -x -f /tmp/mysql-connector-java-5.0.8.tar.gz --wildcards --no-anchored mysql-connector-java-5.0.8-bin.jar --to-stdout > /opt/solr/dist/mysql-connector-java-5.0.8-bin.jar
 ##
 #
 
