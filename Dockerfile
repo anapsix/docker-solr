@@ -6,9 +6,18 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 ENV SOLR_VERSION 5.2.0
 ENV SOLR solr-$SOLR_VERSION
 ADD http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$SOLR_VERSION/$SOLR.tgz /tmp/$SOLR.tgz
-RUN mkdir -p /opt
-RUN tar -C /opt -xf /tmp/$SOLR.tgz
-RUN ln -sf /opt/$SOLR /opt/solr
+RUN mkdir -p /opt \
+ && tar -C /opt -xf /tmp/$SOLR.tgz \
+ && ln -sf /opt/$SOLR /opt/solr
+##
+#
+
+#
+## Patch naturalSort.js
+## See https://issues.apache.org/jira/browse/SOLR-7588
+RUN apt-get install -y patch unzip \
+ && unzip -d /opt/solr/server/solr-webapp/webapp /opt/solr/server/webapps/solr.war \
+ && wget -q --no-check-certificate -O - https://issues.apache.org/jira/secure/attachment/12738314/SOLR-7588.patch | patch -p0 /opt/solr/server/solr-webapp/webapp/js/lib/naturalSort.js
 ##
 #
 
