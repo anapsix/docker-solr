@@ -1,7 +1,7 @@
 docker-solr
 ===================
 
-SOLR 5.2 with Java8 (openjdk-8-jre-headless) over Debian 8 aka Jessie
+SOLR 5.2 with Oracle Java8 over Ubuntu 14.04 aka Trusty
 includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
 
 ## Usage

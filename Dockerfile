@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM anapsix/docker-oracle-java8
 MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
