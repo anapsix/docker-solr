@@ -7,6 +7,7 @@ if [ -z "$1" ]; then
   set -- bin/solr start -f
 elif [[ "${1:0:1}" == '-' ]]; then
   bin/solr start -f "$@"
+  echo "$@" | grep -q help || \
   for ((i=10;i--;i>0)); do
     LOG="$(find ./ -name "solr.log" -mtime -1)"
     if [ -n "$LOG" ]; then
@@ -17,11 +18,8 @@ elif [[ "${1:0:1}" == '-' ]]; then
     fi
     sleep 1
   done
-
 else
   exec "$@"
 fi
 
-
 echo "fin."
-

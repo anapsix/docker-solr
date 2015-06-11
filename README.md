@@ -1,19 +1,17 @@
 docker-solr
 ===================
 
-Minimal Docker image for SOLR with Java8 over Ubuntu 14.04  
+SOLR 5.2 with Java8 (openjdk-8-jre-headless) over Debian 8 aka Jessie
 includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
 
-via WebUpd8 repo, inspired by @akisei and @makuk66
+## Usage
 
-docker-solr
-===================
+**NEW**: you can now pass arguments to solr directly.
+> Try `docker run -it anapsix/solr -e techproducts`
 
-Minimal Docker image for SOLR with Java8 over Ubuntu 14.04  
-includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
+See `docker run -it anapsix/solr -help` for available command line arguments
 
-via WebUpd8 repo, inspired by @akisei and @makuk66
-
+------
 
 Here is how I start the container, while mounting Solr Core settings inside the container instance.
 
