@@ -5,7 +5,7 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 ## SOLR INSTALLATION
 ENV SOLR_VERSION 5.2.0
 ENV SOLR solr-$SOLR_VERSION
-ADD http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$SOLR_VERSION/$SOLR.tgz /tmp/$SOLR.tgz
+ADD http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz /tmp/$SOLR.tgz
 RUN mkdir -p /opt \
  && tar -C /opt -xf /tmp/$SOLR.tgz \
  && ln -sf /opt/$SOLR /opt/solr
@@ -40,4 +40,6 @@ RUN rm -rfv /tmp/*
 #
 
 EXPOSE 8983
-CMD ["/bin/bash", "-c", "cd /opt/solr; ./bin/solr start -f"]
+ADD ./docker-entrypoint.sh /entrypoint.sh
+WORKDIR /opt/solr
+ENTRYPOINT ["/entrypoint.sh"]
