@@ -1,4 +1,4 @@
-FROM jeanblanchard/busybox-java
+FROM java:8-jre
 MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
