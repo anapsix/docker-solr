@@ -1,4 +1,4 @@
-FROM jeanblanchard/busybox-java
+FROM anapsix/docker-oracle-java8
 MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
