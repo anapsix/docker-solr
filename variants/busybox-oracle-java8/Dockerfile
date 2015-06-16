@@ -1,4 +1,4 @@
-FROM jeanblanchard/busybox-java
+FROM anapsix/busybox-java
 MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #

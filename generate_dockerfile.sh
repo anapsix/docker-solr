@@ -3,7 +3,7 @@
 # works with GNU bash only
 
 declare -A variants
-variants[busybox-oracle-java8]="jeanblanchard/busybox-java"
+variants[busybox-oracle-java8]="anapsix/busybox-java"
 variants[openjdk-java8]="java:8-jre"
 variants[oracle-java8]="anapsix/docker-oracle-java8"
 DOCKERFILE_TEMPLATE=Dockerfile
