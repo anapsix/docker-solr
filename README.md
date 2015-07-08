@@ -6,12 +6,16 @@ Few variants of an image with SOLR 5.2 over Java8, includes JDBC for PostgreSQL 
 [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg?style=flat-square)](https://registry.hub.docker.com/u/anapsix/solr/) 
 [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest)
 
-
-`anapsix/solr:latest` = `anapsix/solr:busybox-oracle-java8`  
-`anapsix/solr:busybox-oracle-java8`: Oracle Java8 over Busybox based on `jeanblanchard/busybox-java`, based on `progrium/busybox`  
+`anapsix/solr:latest` = `anapsix/solr:alpine-oracle-java8`  
+`anapsix/solr:alpine-oracle-java8`: Oracle Java8 over AlpineLinux 3.2  
+`anapsix/solr:busybox-oracle-java8`: __deprecated_ in favor of `anapsix/solr:alpine-oracle-java8`  
 `anapsix/solr:oracle-java8`: Oracle Java8 over Ubuntu Trusty based on `anapsix/docker-oracle-java8`, based on `library:ubuntu:14.04`  
 `anapsix/solr:openjdk-java8`: OpenJDB Java8 over Debian Jessie based on `java:8-jre`, based on `buildpack-deps:jessie-curl`, based on `debian:jessie`  
 
+> `anapsix/solr:busybox-oracle-java8` is deprecated, since OpenWRT switched from glibc to musl, which broke `progrium/busybox`
+
+
+## Usage
 
 Here is how I start the container, while mounting Solr core directories inside the container instance.
 
@@ -20,7 +24,7 @@ Here is how I start the container, while mounting Solr core directories inside t
     # Start an instance of Solr container with cores mounted
     #
 
-    SOLR_IMAGE="anapsix/solr:busybox-oracle-java8"
+    SOLR_IMAGE="anapsix/solr"
     HOST_PROXY_PORT=8983
     CONTAINER_SOLR_PORT=8983
 

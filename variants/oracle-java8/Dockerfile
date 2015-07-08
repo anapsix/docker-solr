@@ -3,7 +3,7 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
 ## install required utils
-RUN [ -e /etc/opkg.conf ] && opkg-install bash; [ -e /bin/bash ]
+RUN [ -e /sbin/apk ] && apk add bash; [ -e /bin/bash ]
 RUN [ -e /usr/bin/apt-get ] && apt-get update && apt-get install -y patch unzip && apt-get clean all; which unzip && which patch
 ##
 #
