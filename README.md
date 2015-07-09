@@ -3,7 +3,6 @@ docker-solr
 
 Few variants of an image with SOLR 5.2 over Java8, includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
 
-[![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg?style=flat-square)](https://registry.hub.docker.com/u/anapsix/solr/) 
 [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest)
 
 `anapsix/solr:latest` = `anapsix/solr:alpine-oracle-java8`  
