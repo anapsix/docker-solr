@@ -1,18 +1,16 @@
 docker-solr
 ===================
 
-Few variants of an image with SOLR 5.2 over Java8, includes JDBC for PostgreSQL (9.3-1103.jdbc41) and MySQL (5.1.35)
+Few variants of an image with SOLR 5.4 over Java8, includes JDBC for PostgreSQL (9.4.1207-42) and MySQL (5.1.38).  
+Alpine image also includes BASH, OpenSSL and ca-certificates packages.
 
 [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest)
 
-`anapsix/solr:latest` = `anapsix/solr:alpine-oracle-java8`  
-`anapsix/solr:alpine-oracle-java8`: Oracle Java8 over AlpineLinux 3.2, based on anapsix/alpine-java  
-`anapsix/solr:busybox-oracle-java8`: __deprecated__ in favor of `anapsix/solr:alpine-oracle-java8`  
-`anapsix/solr:oracle-java8`: Oracle Java8 over Ubuntu Trusty based on `anapsix/docker-oracle-java8`, based on `library:ubuntu:14.04`  
-`anapsix/solr:openjdk-java8`: OpenJDK Java8 over Debian Jessie based on `java:8-jre`, based on `buildpack-deps:jessie-curl`, based on `debian:jessie`  
-
-> `anapsix/solr:busybox-oracle-java8` is deprecated, since OpenWRT switched from glibc to musl and broke `progrium/busybox`
-
+| tag                          | description                      | size |
+| ---------------------------- | -------------------------------- | ---- |
+| latest / alpine-oracle-java8 | Oracle Java8 over AlpineLinux    | [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest) |
+| oracle-java8                 | Oracle Java8 over Ubuntu Trusty  | [![](https://badge.imagelayers.io/anapsix/solr:oracle-java8.svg)](https://imagelayers.io/?images=anapsix/solr:oracle-java8) |
+| openjdk-java8                | OpenJDK Java8 over Debian Jessie | [![](https://badge.imagelayers.io/anapsix/solr:openjdk-java8.svg)](https://imagelayers.io/?images=anapsix/solr:openjdk-java8) |
 
 ## Usage
 

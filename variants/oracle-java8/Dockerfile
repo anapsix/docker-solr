@@ -3,17 +3,18 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
 ## Env
-ENV SOLR_VERSION 5.2.0
+ENV SOLR_VERSION 5.4.0
 ENV SOLR solr-$SOLR_VERSION
-ENV JDBC_MYSQL_VERSION 5.1.35
-ENV JDBC_PSQL_VERSION 9.3-1103.jdbc41
+ENV JDBC_MYSQL_VERSION 5.1.38
+ENV JDBC_PSQL_VERSION 9.4.1207
 ##
 #
 
 #
 ## Install
 RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
-    ( [ -e /usr/bin/apt-get ] && ( apt-get update && apt-get install -y patch unzip && apt-get clean all && which unzip && which patch ) || echo "no \"apk\", no \"apt-get\", what are you running, Gentoo?" ) && \
+    ( [ -e /usr/bin/apt-get ] && ( apt-get update && apt-get dist-upgrade -y && apt-get install -y ca-certificates patch unzip && apt-get clean all && which unzip && which patch ) || ( echo "no \"apk\", no \"apt-get\", what are you running, Gentoo?" >&2 && exit 1 ) ) && \
+    cd /tmp && \
     echo "getting solr $SOLR_VERSION" >&2 && \
     wget -q http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz -O /tmp/$SOLR.tgz && \
     mkdir -p /opt && \
@@ -25,11 +26,6 @@ RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     wget -q http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-$JDBC_MYSQL_VERSION.tar.gz -O /tmp/mysql-connector-java-$JDBC_MYSQL_VERSION.tar.gz && \
     echo mysql-connector-java-$JDBC_MYSQL_VERSION/mysql-connector-java-$JDBC_MYSQL_VERSION-bin.jar > /tmp/include && \
     gzip -dc /tmp/mysql-connector-java-$JDBC_MYSQL_VERSION.tar.gz | tar -x -T /tmp/include > /opt/solr/dist/mysql-connector-java-$JDBC_MYSQL_VERSION-bin.jar && \
-    echo "fixing naturalSort.js (see https://issues.apache.org/jira/browse/SOLR-7588)" >&2 && \
-    wget -q https://issues.apache.org/jira/secure/attachment/12738314/SOLR-7588.patch -O /tmp/SOLR-7588.patch && \
-    mkdir /opt/solr/server/solr-webapp/webapp && \
-    unzip -q -d /opt/solr/server/solr-webapp/webapp /opt/solr/server/webapps/solr.war && \
-    patch -p0 /opt/solr/server/solr-webapp/webapp/js/lib/naturalSort.js < /tmp/SOLR-7588.patch && \
     echo "cleaning up.." >&2 && \
     rm -rf /tmp/*
 ##
