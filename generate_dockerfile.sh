@@ -4,7 +4,7 @@
 set -e
 
 declare -A variants
-variants[alpine-oracle-java8]="anapsix/alpine-java"
+variants[alpine-oracle-java8]="anapsix/alpine-java:jre8"
 variants[openjdk-java8]="java:8-jre"
 variants[oracle-java8]="anapsix/docker-oracle-java8"
 DOCKERFILE_TEMPLATE=Dockerfile

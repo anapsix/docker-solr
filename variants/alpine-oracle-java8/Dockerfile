@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java
+FROM anapsix/alpine-java:jre8
 MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
