@@ -1,7 +1,7 @@
 docker-solr
 ===================
 
-Few variants of an image with SOLR 5.4 over Java8, includes JDBC for PostgreSQL (9.4.1207-42) and MySQL (5.1.38).  
+Few variants of an image with SOLR 5.4.1 over Java8, includes JDBC for PostgreSQL (9.4.1207-42) and MySQL (5.1.38).  
 Alpine image also includes BASH, OpenSSL and ca-certificates packages.
 
 [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest)
