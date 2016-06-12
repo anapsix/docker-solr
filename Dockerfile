@@ -3,7 +3,7 @@ MAINTAINER Anastas Dancha "anapsix@random.io"
 
 #
 ## Env
-ENV SOLR_VERSION 5.4.1
+ENV SOLR_VERSION 5.5.1
 ENV SOLR solr-$SOLR_VERSION
 ENV JDBC_MYSQL_VERSION 5.1.38
 ENV JDBC_PSQL_VERSION 9.4.1207
@@ -14,6 +14,7 @@ ENV JDBC_PSQL_VERSION 9.4.1207
 ## Install
 RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     ( [ -e /usr/bin/apt-get ] && ( apt-get update && apt-get dist-upgrade -y && apt-get install -y ca-certificates patch unzip && apt-get clean all && which unzip && which patch ) || ( echo "no \"apk\", no \"apt-get\", what are you running, Gentoo?" >&2 && exit 1 ) ) && \
+    ( which curl || apk add --update curl ) && \
     cd /tmp && \
     echo "getting solr $SOLR_VERSION" >&2 && \
     wget -q http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz -O /tmp/$SOLR.tgz && \
@@ -27,6 +28,7 @@ RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     echo mysql-connector-java-$JDBC_MYSQL_VERSION/mysql-connector-java-$JDBC_MYSQL_VERSION-bin.jar > /tmp/include && \
     gzip -dc /tmp/mysql-connector-java-$JDBC_MYSQL_VERSION.tar.gz | tar -x -T /tmp/include > /opt/solr/dist/mysql-connector-java-$JDBC_MYSQL_VERSION-bin.jar && \
     echo "cleaning up.." >&2 && \
+    apk del curl || true && \
     rm -rf /tmp/*
 ##
 #
