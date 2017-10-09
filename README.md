@@ -1,14 +1,15 @@
 docker-solr
 ===================
 
-Few variants of an image with SOLR 6.0.1/5.5.1 over Java8, includes JDBC for PostgreSQL (9.4.1207-42) and MySQL (5.1.38).  
+Few variants of an image with SOLR 7.0.1 over Java8, includes JDBC for PostgreSQL (9.4.1207-42) and MySQL (5.1.38).  
 Alpine image also includes BASH, OpenSSL and ca-certificates packages.
 
 [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest)
 
 | tag                          | description                      | size |
 | ---------------------------- | -------------------------------- | ---- |
-| 6 / latest | Solr 6 & Oracle Java8 over AlpineLinux    | [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest) |
+| 7 / latest | Solr 6 & Oracle Java8 over AlpineLinux    | [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:latest) |
+| 6 | Solr 6 & Oracle Java8 over AlpineLinux    | [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:6) |
 | 5 / 5-alpine-oracle-java8 | Solr 5 & Oracle Java8 over AlpineLinux    | [![](https://badge.imagelayers.io/anapsix/solr:latest.svg)](https://imagelayers.io/?images=anapsix/solr:5) |
 | 5-oracle-java8                 | Solr 5 & Oracle Java8 over Ubuntu Trusty  | [![](https://badge.imagelayers.io/anapsix/solr:oracle-java8.svg)](https://imagelayers.io/?images=anapsix/solr:5-oracle-java8) |
 | 5-openjdk-java8                | Solr 5 & OpenJDK Java8 over Debian Jessie | [![](https://badge.imagelayers.io/anapsix/solr:openjdk-java8.svg)](https://imagelayers.io/?images=anapsix/solr:5-openjdk-java8) |
