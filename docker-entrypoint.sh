@@ -4,9 +4,9 @@ set -e
 trap 'echo "Shutting down..."; exit 0' SIGINT
 
 if [ -z "$1" ]; then
-  exec bin/solr start -f
+  exec bin/solr start -force -f
 elif [[ "${1:0:1}" == '-' ]]; then
-  exec bin/solr start -f "$@"
+  exec bin/solr start -force -f "$@"
   for ((i=10;i--;i>0)); do
     LOG="$(find ./ -name "solr.log" -mtime -1)"
     if [ -n "$LOG" ]; then
